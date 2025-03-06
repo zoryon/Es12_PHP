@@ -1,10 +1,14 @@
 <?php
-    if ($_REQUEST["METHOD"] !== "GET") return null;
+    if ($_SERVER["REQUEST_METHOD"] !== "GET") {
+        header("HTTP/1.1 405 Method Not Allowed");
+        exit();
+    };
 
     // params validation
-    if (!isset($_GET["nation"])) return null;
-
-    $nation = $_GET["nation"];
+    if (!isset($_GET["nation"]) || empty($_GET["nation"])) {
+        header("HTTP/1.1 400 Bad Request");
+        exit();
+    };
 ?>
 
 <!DOCTYPE html>
@@ -16,7 +20,7 @@
 
     <!-- scripts -->
     <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
-    <script src="../assets/js/specific-nation.js"></script>
+    <script src="../assets/js/nations.js"></script>
 
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">

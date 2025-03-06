@@ -1,5 +1,5 @@
-CREATE DATABASE aeroporto;
-use aeroporto;
+CREATE DATABASE es12;
+use es12;
 
 -- phpMyAdmin SQL Dump
 -- version 5.0.2
